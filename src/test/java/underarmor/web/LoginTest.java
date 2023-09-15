@@ -16,10 +16,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     void loginTest() {
-        page.navigate("https://www.underarmour.com");
 
         HomePage homePage = new HomePage(page);
-        homePage.logIn(email,password);
+        homePage.acceptCookies().logIn(email,password);
 
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshots/example.png")));
         assertEquals(page.title(), "Under Armour® Official Store | FREE Shipping Available");

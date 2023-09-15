@@ -16,6 +16,10 @@ public class HomePage extends UABasePage {
 
     private Locator myAccountBtn = page.locator("#my-account");
 
+    private Locator cookiesModal = page.locator("#truste-consent-track");
+
+    private Locator cookiesAcceptBtn = page.locator("#truste-consent-button");
+
     private MainMenu mainMenu;
 
     public HomePage(Page page) {
@@ -32,6 +36,11 @@ public class HomePage extends UABasePage {
 
     public boolean isLoggedIn() {
         return myAccountBtn.textContent().toLowerCase().contains("my account");
+    }
+
+    public HomePage acceptCookies() {
+        if (cookiesModal.isVisible()) cookiesAcceptBtn.click();
+        return new HomePage(page);
     }
 
     public MainMenu getMainMenu() {

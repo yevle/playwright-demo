@@ -12,7 +12,6 @@ public class MainMenuTest extends BaseTest {
 
     @Test
     void hoverTest() {
-        page.navigate("https://www.underarmour.com");
 
         HomePage homePage = new HomePage(page);
 
